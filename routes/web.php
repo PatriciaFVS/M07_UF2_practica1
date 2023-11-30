@@ -1,7 +1,9 @@
 <?php
 
 use App\Http\Controllers\SignController;
+use App\Http\Controllers\loginController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Middleware\loginMiddleware;
 
 /*
 |--------------------------------------------------------------------------
@@ -37,6 +39,17 @@ Route::get('/mostrar', function () {
 Route::get('/sign/signin/{inici}/{sessio}/{de}/{usuari}',[SignController::class,'signin']);
 
 Route::get('/sign/signup/{creacio}/{usuari}/{nou}',[SignController::class,'signup']);
+
+
+//Pràctica 2
+
+Route::post('/login',[loginController::class,'loginpost'])->middleware('email');
+
+Route::get('/error',function(){
+    return "Error d'accès";
+    })->name('errorAcces.index');
+
+
 
 
 /**Route::get('/sign/signin/{inici}/{sessio}/{de}/{usuari}', function ($inici, $sessio, $de, $usuari) {
