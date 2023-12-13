@@ -45,6 +45,11 @@ Route::get('/sign/signup/{creacio}/{usuari}/{nou}',[SignController::class,'signu
 
 Route::post('/login',[loginController::class,'loginpost'])->middleware('email');
 
+Route::get('/signin',[loginController::class,'signin']);
+
+Route::get('/signup',[loginController::class,'signup']);
+
+Route::get('/signup',[loginController::class,'dadesusuari']);
 Route::get('/error',function(){
     return "Error d'accès";
     })->name('errorAcces.index');

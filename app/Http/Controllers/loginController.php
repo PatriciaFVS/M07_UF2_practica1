@@ -14,8 +14,35 @@ class loginController extends Controller
             return view('login.alumne')->with('email',$email);
         }else if($email==$alumnes[1]){
             return view('login.professor')->with('email',$email);
-        }else{
-        return view('login.centre')->with('email',$email);
-        }
+        }else if ($email==$alumnes[2]){
+            $professors=[
+
+
+
+            ];
+            return view('login.centre')->with('email',$email);
+        }else
+            return "Error d'accés";
+        
+    }
+
+    public function singin(){
+        return view('noulogin.signin');
+    }
+    public function singup(){
+        return view('noulogin.signup');
+    }
+
+    public function dadesusuari(){
+            $nom= request('nom');
+            $cognom = request('cognom');
+            $email= request('email');
+        
+            return view('practica3.mostrarInfo')->with([
+                'nom' => $nom,
+                'cognom' => $cognom,
+                'email' => $email,
+                ]);
+        
     }
 }
