@@ -6,6 +6,8 @@
     <title>Document</title>
 </head>
 <body>
-   <h1>{{$titol_vista}}</h1>
+    <h1> Error d'accés</h1>
+
+    <a href="{{route ('prof.inici')}}">Tornar a login</a>
 </body>
 </html>

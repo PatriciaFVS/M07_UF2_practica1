@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\SignController;
 use App\Http\Controllers\loginController;
+use App\Http\Controllers\loginControllerAlumnes;
 use Illuminate\Support\Facades\Route;
 use App\Http\Middleware\loginMiddleware;
 
@@ -39,22 +40,30 @@ Route::get('/mostrar', function () {
 Route::get('/sign/signin/{inici}/{sessio}/{de}/{usuari}',[SignController::class,'signin']);
 
 Route::get('/sign/signup/{creacio}/{usuari}/{nou}',[SignController::class,'signup']);
+//Route::post('/login',[loginController::class,'loginpost'])->middleware('email');
 
+//Pràctica 5
 
-//Pràctica 2
+Route::controller(loginController::class)->group(function(){
+    Route::post('/prof/login','logininici')->name('prof.login');
+    Route::get('/prof/signin','signin')->name('prof.inici');
+    Route::get('/prof/signup','signup')->name('prof.crearUsuari');
+    Route::post('/prof/store','store')->name('prof.store');
+    Route::get('/prof/editar/{id}','editarUsuari')->name('prof.editarUsuari');
+    Route::put('/prof/{id}','update')->name('prof.update');
+    Route::delete('/prof/{id}','delete')->name('prof.delete');
+    
+});
 
-Route::post('/login',[loginController::class,'loginpost'])->middleware('email');
-
-Route::get('/signin',[loginController::class,'signin']);
-
-Route::get('/signup',[loginController::class,'signup']);
-
-Route::get('/signup',[loginController::class,'dadesusuari']);
-Route::get('/error',function(){
-    return "Error d'accès";
-    })->name('errorAcces.index');
-
-
+Route::controller(loginControllerAlumnes::class)->group(function(){
+    Route::post('/alum/login','logininici')->name('alum.login');
+    Route::get('/alum/signup','signup')->name('alum.crearUsuari');
+    Route::post('/alum/store','store')->name('alum.store');
+    Route::get('/alum/editar/{id}','editarUsuari')->name('alum.editarUsuari');
+    Route::put('/alum/{id}','update')->name('alum.update');
+    Route::delete('/alum/{id}','delete')->name('alum.delete');
+    
+});
 
 
 /**Route::get('/sign/signin/{inici}/{sessio}/{de}/{usuari}', function ($inici, $sessio, $de, $usuari) {

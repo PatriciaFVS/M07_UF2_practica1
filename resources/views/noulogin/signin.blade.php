@@ -7,7 +7,7 @@
 </head>
 <body>
     <h1>Iniciar sessió d'usuari </h1>
-    <form action="/login" method="post">
+    <form action="{{route('prof.login')}}" method="post">
         <div>
             <label for="email"> Email </label>
             <input type="email" name="email">
@@ -16,12 +16,8 @@
             <label for="contrasenya"> Contraseña </label>
             <input type="password" name="contrasenya">
         </div>
-        <div>
-            <input type="checkbox" id="remember" name="remember" value="remember">
-            <label for="remember"> Remember</label>
-        </div>
         <input type="submit" value="Enviar">
     </form>
-    <a href="/signup"> Crear Usuario</a>
+    <a href="view"> Crear Usuario</a>
 </body>
 </html>

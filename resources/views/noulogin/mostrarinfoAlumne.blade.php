@@ -6,7 +6,6 @@
     <title>Document</title>
 </head>
 <body>
-   <h1>{{$titol_vista_signup}}</h1>
+    <h1>Hola Alumne</h1>
 </body>
 </html>
-

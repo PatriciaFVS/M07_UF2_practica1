@@ -7,7 +7,7 @@
 </head>
 <body>
 <h1 style="font-family:Arial, Helvetica, sans-serif"> Crear usuari </h1>
-    <form method="POST" action="{{route('prof.store')}}">
+    <form method="POST" action="{{route('alum.store')}}">
         <table>
         <tr>
             <td><label>id</label></td>
